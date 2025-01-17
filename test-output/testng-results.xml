@@ -1,21 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-17T16:38:45 IST" name="Default suite" finished-at="2025-01-17T16:38:57 IST" duration-ms="12305">
+  <suite started-at="2025-01-17T17:15:20 IST" name="Default suite" finished-at="2025-01-17T17:15:30 IST" duration-ms="9249">
     <groups>
     </groups>
-    <test started-at="2025-01-17T16:38:45 IST" name="Default test" finished-at="2025-01-17T16:38:57 IST" duration-ms="12305">
+    <test started-at="2025-01-17T17:15:20 IST" name="Default test" finished-at="2025-01-17T17:15:30 IST" duration-ms="9249">
       <class name="Day1.Test1">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:Day1.Test1@4c402120]" started-at="2025-01-17T16:38:45 IST" name="setUp" finished-at="2025-01-17T16:38:50 IST" duration-ms="5246" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Day1.Test1@5b12b668]" started-at="2025-01-17T17:15:20 IST" name="setUp" finished-at="2025-01-17T17:15:26 IST" duration-ms="5237" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="tc8()[pri:0, instance:Day1.Test1@4c402120]" started-at="2025-01-17T16:38:50 IST" name="tc8" finished-at="2025-01-17T16:38:57 IST" duration-ms="6577" status="PASS">
+        <test-method signature="tc10()[pri:0, instance:Day1.Test1@5b12b668]" started-at="2025-01-17T17:15:26 IST" name="tc10" finished-at="2025-01-17T17:15:29 IST" duration-ms="3453" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Practice Page] but found [QAClick Academy - A Testing Academy to Learn, Earn and Shine]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Practice Page] but found [QAClick Academy - A Testing Academy to Learn, Earn and Shine]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at Day1.Test1.tc10(Test1.java:293)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc8 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Day1.Test1@4c402120]" started-at="2025-01-17T16:38:57 IST" name="tearDown" finished-at="2025-01-17T16:38:57 IST" duration-ms="427" status="PASS">
+        </test-method> <!-- tc10 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Day1.Test1@5b12b668]" started-at="2025-01-17T17:15:29 IST" name="tearDown" finished-at="2025-01-17T17:15:30 IST" duration-ms="505" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

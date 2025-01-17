@@ -226,6 +226,84 @@ public class Test1 {
 		}
 	}
 	
+	
+	@Test
+	public void tc9() throws InterruptedException
+	{
+		WebElement AutoSugText=sp.findElement(By.xpath("//input[contains(@id,'autocomplete')]"));
+		
+		AutoSugText.sendKeys("IN");
+		
+		Thread.sleep(3000);
+		
+		List<WebElement> auto=sp.findElements(By.xpath("//li[contains(@class,'ui-menu-item')]"));
+		
+		int autoNumber=auto.size();
+		
+		System.out.println("Total Number of Autosuggestions are :"+autoNumber);
+		
+		for(WebElement autoText:auto)
+		{
+			String AutuSuggestion =autoText.getText();
+			
+			System.out.println("Automation Text are :"+AutuSuggestion);
+			
+			if(AutuSuggestion.contentEquals("Finland"))
+			{
+				autoText.click();
+				
+				Thread.sleep(3000);
+			}
+		}
+		
+		TakesScreenshot tk9=(TakesScreenshot)sp;
+		
+		File src9=tk9.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(src9, new File("C://Users//yogemane//eclipse-workspace//NewPractice//TakesScreenshot//AutoSuggestion.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void tc10() throws InterruptedException
+	{
+		Set<String>s=sp.getWindowHandles();
+		
+		Iterator<String>ss=s.iterator();
+		
+		String Parent=ss.next();
+				
+		sp.switchTo().window(Parent);
+		
+		sp.findElement(By.xpath("//button[contains(@id,'openwindow')]")).click();
+		
+		Thread.sleep(3000);
+		
+		String ActualTitle="QAClick Academy - A Testing Academy to Learn, Earn and Shine";
+		
+		String NewWindTitle=sp.getTitle();
+		
+		System.out.println("New Window Title is :"+NewWindTitle);
+		
+		Assert.assertEquals(ActualTitle, NewWindTitle);
+				
+		TakesScreenshot tk10=(TakesScreenshot)sp;
+		
+		File src10=tk10.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(src10, new File("C://Users//yogemane//eclipse-workspace//NewPractice//TakesScreenshot//NewWindow.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@AfterTest
 	public void tearDown()
 	{
