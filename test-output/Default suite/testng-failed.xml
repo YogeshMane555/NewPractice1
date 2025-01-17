@@ -5,9 +5,9 @@
     <classes>
       <class name="Day1.Test1">
         <methods>
+          <include name="tc8"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="tc1"/>
         </methods>
       </class> <!-- Day1.Test1 -->
     </classes>

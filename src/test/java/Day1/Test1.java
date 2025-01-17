@@ -2,8 +2,12 @@ package Day1;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -17,7 +21,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.opentelemetry.api.internal.Utils;
 
 public class Test1 {
 	
@@ -146,9 +149,81 @@ public class Test1 {
 	}
 		
 	@Test
-	public void tc6()
+	public void tc6() throws InterruptedException
 	{
+		WebElement AlertText= sp.findElement(By.xpath("//input[contains(@id,'name')]"));
 		
+		AlertText.sendKeys("Yogesh Mane");
+		
+		Thread.sleep(3000);
+		
+		sp.findElement(By.xpath("//input[contains(@id,'alertbtn')]")).click();
+		
+		Alert a=sp.switchTo().alert();
+		
+		a.accept();	
+		
+		Thread.sleep(3000);
+		
+		AlertText.sendKeys("Mane Yogesh");
+		
+		Thread.sleep(3000);
+		
+		sp.findElement(By.xpath("//input[contains(@id,'confirmbtn')]")).click();
+		
+		Alert aa=sp.switchTo().alert();
+		
+		aa.dismiss();
+	}
+	
+	@Test
+	public void tc7()
+	{
+		List<WebElement> tg=sp.findElements(By.tagName("a"));
+		
+		int totalNumberOfTag=tg.size();
+		
+		System.out.println("Total Number of Tags are :"+totalNumberOfTag);
+		
+		for(WebElement texttg:tg)
+		{
+			String tagName=texttg.getText();
+			
+			System.out.println("Tag Names are :"+tagName);
+		}
+		
+	}
+	
+	
+	@Test
+	public void tc8() throws InterruptedException
+	{
+		JavascriptExecutor js8=(JavascriptExecutor)sp;
+		
+		js8.executeScript("window.scrollBy(0,1350)");
+		
+		WebElement frame=sp.findElement(By.xpath("//iframe[contains(@id,'courses-iframe')]"));
+		
+		sp.switchTo().frame(frame);
+		
+		Thread.sleep(3000);
+		
+		JavascriptExecutor js9=(JavascriptExecutor)sp;
+		
+		js9.executeScript("window.scrollBy(0,650)");
+		
+		Thread.sleep(3000);
+		
+		TakesScreenshot tk8=(TakesScreenshot)sp;
+		
+		File src8=tk8.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(src8, new File("C://Users//yogemane//eclipse-workspace//NewPractice//TakesScreenshot//Frame.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@AfterTest
