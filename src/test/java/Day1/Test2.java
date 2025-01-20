@@ -2,8 +2,10 @@ package Day1;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -129,11 +131,56 @@ public class Test2 {
 	}
 	
 	@Test
-	public void tc5()
+	public void tc5() throws InterruptedException
 	{
+		WebElement TextBox=sp.findElement(By.xpath("//input[contains(@id,'name')]"));
 		
+		TextBox.sendKeys("Yogesh");
+		
+		Thread.sleep(3000);
+		
+		sp.findElement(By.xpath("//input[contains(@id,'alertbtn')]")).click();
+		
+		Thread.sleep(3000);
+		
+		Alert a=sp.switchTo().alert();
+		
+		a.accept();
+		
+		Thread.sleep(3000);
+	
+		TextBox.sendKeys("Mane Yogesh");
+		
+		Thread.sleep(3000);
+
+		sp.findElement(By.xpath("//input[contains(@id,'confirmbtn')]")).click();
+		
+		Thread.sleep(3000);
+		
+		Alert aa=sp.switchTo().alert();
+		
+		aa.dismiss();
 	}
 			
+	
+	@Test
+	public void tc6()
+	{
+		List<WebElement>tg=sp.findElements(By.tagName("a"));
+		
+		int totalNoLink=tg.size();
+		
+		System.out.println("Total Number of Links are :"+totalNoLink);
+		
+		for(WebElement tgtx:tg)
+		{
+			String txtTgName=tgtx.getText();
+			
+			System.out.println("Links are as follows :"+txtTgName);
+		}
+		
+	}
+	
 	
 	@AfterMethod
 	public void tearDown()
