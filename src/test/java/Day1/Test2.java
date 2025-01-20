@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -182,6 +183,85 @@ public class Test2 {
 		
 	}
 	
+	
+	@Test
+	public void tc7() throws InterruptedException
+	{
+		JavascriptExecutor js7=(JavascriptExecutor)sp;
+		
+		js7.executeScript("window.scrollBy(0,550)");
+		
+		Thread.sleep(3000);
+		 
+		WebElement tx=sp.findElement(By.xpath("//input[contains(@id,'displayed-text')]"));
+		
+		tx.sendKeys("Yogesh Mane");
+		
+		sp.findElement(By.xpath("//input[contains(@id,'hide-textbox')]")).click();
+		
+		Boolean b7=tx.isDisplayed();
+		
+		System.out.println("Is text box field WebElement displayed? :"+b7);
+		
+		Thread.sleep(3000);
+		
+		sp.findElement(By.xpath("//input[contains(@id,'show-textbox')]")).click();
+		
+		Boolean b8=tx.isDisplayed();
+	
+		System.out.println("After Clicking on Show button is Text field displayed ? :"+b8);
+		
+		TakesScreenshot tk7=(TakesScreenshot)sp;
+		
+		File src7=tk7.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(src7, new File("C://Users//yogemane//eclipse-workspace//NewPractice//TakesScreenshot//Show-HideDisplayed.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void tc8() throws InterruptedException
+	{
+		JavascriptExecutor js8=(JavascriptExecutor)sp;
+		
+		js8.executeScript("window.scrollBy(0,1350)");
+		
+		Thread.sleep(3000);
+		
+		WebElement frm=sp.findElement(By.xpath("//iframe[contains(@id,'courses-iframe')]"));
+		
+		sp.switchTo().frame(frm);
+		
+		Thread.sleep(3000);
+		
+		JavascriptExecutor js9=(JavascriptExecutor)sp;
+		
+		js9.executeScript("window.scrollBy(0,750)");
+		
+		Thread.sleep(3000);
+		
+		TakesScreenshot tk8=(TakesScreenshot)sp;
+		
+		File src8=tk8.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(src8, new File("C://Users//yogemane//eclipse-workspace//NewPractice//TakesScreenshot//ScrollingToFrameInFrame.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void tc9()
+	{
+		
+	}
 	
 	@AfterMethod
 	public void tearDown()
