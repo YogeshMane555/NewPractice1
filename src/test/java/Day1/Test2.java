@@ -258,9 +258,43 @@ public class Test2 {
 	}
 	
 	@Test
-	public void tc9()
+	public void tc9() throws InterruptedException
 	{
+		sp.findElement(By.xpath("//input[contains(@id,'autocomplete')]")).sendKeys("Ir");
 		
+		Thread.sleep(3000);
+		
+		List<WebElement>sug=sp.findElements(By.xpath("//li[contains(@class,'ui-menu-item')]"));
+		
+		int sugNo=sug.size();
+		
+		System.out.println("Total Number of Suggestions are :"+sugNo);
+		
+		for(WebElement autoSug:sug)
+		{
+			
+			String txt= autoSug.getText();
+			
+			System.out.println("Autosuggestion are :"+txt);
+			
+			if(txt.contentEquals("Iran (Islamic Republic of)"))
+			{
+				autoSug.click();
+				
+				Thread.sleep(3000);
+			}
+		}
+		
+		TakesScreenshot tk9=(TakesScreenshot)sp;
+		
+		File src9=tk9.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(src9, new File("C://Users//yogemane//eclipse-workspace//NewPractice//TakesScreenshot//AutoSuggestionIRAN.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@AfterMethod
