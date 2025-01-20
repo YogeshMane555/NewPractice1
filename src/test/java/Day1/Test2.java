@@ -177,6 +177,7 @@ public class Test2 {
 			String txtTgName=tgtx.getText();
 			
 			System.out.println("Links are as follows :"+txtTgName);
+			
 		}
 		
 	}
